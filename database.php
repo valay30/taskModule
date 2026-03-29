@@ -1,11 +1,13 @@
 <?php
 
-class database{
+class database
+{
     protected $conn = null;
 
-    public function connection(){
+    public function connection()
+    {
         if ($this->conn === null) {
-            $this->conn = mysqli_connect("localhost", "root", "", "productModule");
+            $this->conn = mysqli_connect("localhost", "root", "root", "TaskModule");
 
             if (!$this->conn) {
                 die("Connection Failed: " . mysqli_connect_error());
@@ -14,25 +16,30 @@ class database{
         return $this->conn;
     }
 
-    public function insert($query){
+    public function insert($query)
+    {
         mysqli_query($this->connection(), $query);
         return mysqli_insert_id($this->connection());
     }
 
-    public function update($query){
+    public function update($query)
+    {
         return mysqli_query($this->connection(), $query);
     }
 
-    public function delete($query){
+    public function delete($query)
+    {
         return mysqli_query($this->connection(), $query);
     }
 
-    public function fetchRow($query){
+    public function fetchRow($query)
+    {
         $result = mysqli_query($this->connection(), $query);
         return mysqli_fetch_assoc($result);
     }
 
-    public function fetchAll($query){
+    public function fetchAll($query)
+    {
         $result = mysqli_query($this->connection(), $query);
 
         $rows = [];
