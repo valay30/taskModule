@@ -32,7 +32,7 @@ $rows = $product->getAll();
                 <thead class="table-dark">
                     <tr>
                         <th>
-                            <!-- <input type="checkbox" onclick="toggle(this)"> -->
+                            <input type="checkbox" onclick="toggle(this)">
                         </th>
                         <th>ID</th>
                         <th>Name</th>
@@ -80,14 +80,14 @@ $rows = $product->getAll();
 
 </div>
 
-<!-- <script>
+<script>
 function toggle(source) {
     let checkboxes = document.getElementsByName('ids[]');
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].checked = source.checked;
     }
 }
-</script> -->
+</script>
 
 </body>
 </html>

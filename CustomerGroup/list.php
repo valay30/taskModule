@@ -1,21 +1,21 @@
 <?php
-require_once __DIR__ . '/category.php';
+require_once __DIR__ . '/customer_group.php';
 
-$category = new Category();
-$rows = $category->getAll();
+$group = new CustomerGroup();
+$rows = $group->getAll();
 ?>
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="mb-0">Category List</h2>
-        <a href="Category/form.php" class="btn btn-primary">New Category</a>
+        <h2 class="mb-0">Customer Group List</h2>
+        <a href="CustomerGroup/form.php" class="btn btn-primary">New Customer Group</a>
     </div>
 
     <?php if (isset($_GET['error']) && $_GET['error'] === 'noselect'): ?>
         <div class="alert alert-warning">Please select at least one record to delete.</div>
     <?php endif; ?>
 
-    <form method="POST" action="Category/delete.php">
+    <form method="POST" action="CustomerGroup/delete.php">
         <div class="mb-3">
             <button type="submit" class="btn btn-danger">Delete Selected</button>
         </div>
@@ -25,7 +25,7 @@ $rows = $category->getAll();
                     <tr>
                         <th><input type="checkbox" onclick="toggleAll(this,'ids[]')"></th>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Group Name</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th>Created Date</th>
@@ -37,9 +37,9 @@ $rows = $category->getAll();
                     <?php if (!empty($rows)): ?>
                         <?php foreach ($rows as $row): ?>
                         <tr>
-                            <td><input type="checkbox" name="ids[]" value="<?= $row['category_id'] ?>"></td>
-                            <td><?= $row['category_id'] ?></td>
-                            <td><?= htmlspecialchars($row['name']) ?></td>
+                            <td><input type="checkbox" name="ids[]" value="<?= $row['customer_group_id'] ?>"></td>
+                            <td><?= $row['customer_group_id'] ?></td>
+                            <td><?= htmlspecialchars($row['group_name']) ?></td>
                             <td><?= htmlspecialchars($row['description'] ?? '') ?></td>
                             <td>
                                 <?php if ($row['status'] == 1): ?>
@@ -50,11 +50,11 @@ $rows = $category->getAll();
                             </td>
                             <td><?= $row['created_date'] ?></td>
                             <td><?= $row['updated_date'] ?></td>
-                            <td><a href="Category/form.php?id=<?= $row['category_id'] ?>" class="btn btn-sm btn-warning">Edit</a></td>
+                            <td><a href="CustomerGroup/form.php?id=<?= $row['customer_group_id'] ?>" class="btn btn-sm btn-warning">Edit</a></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
-                        <tr><td colspan="8" class="text-center">No categories found.</td></tr>
+                        <tr><td colspan="8" class="text-center">No customer groups found.</td></tr>
                     <?php endif; ?>
                 </tbody>
             </table>
