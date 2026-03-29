@@ -1,5 +1,5 @@
 <?php
-require_once './Product/product.php';
+require_once __DIR__ . '/product.php';
 
 $product = new Product();
 
@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
 
 <body class="bg-light">
 
-<div class="container mt-5">
+<div class="container mt-4">
 
     <div class="card shadow">
         <div class="card-header bg-primary text-white">
@@ -28,12 +28,11 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="card-body">
-            <form method="POST" action="edit.php">
-
+            <form method="POST" action="save.php">
                 <input type="hidden" name="product_id" value="<?= $product->value('product_id') ?>">
 
                 <div class="mb-3">
-                    <label class="form-label">Product Name</label>
+                    <label class="form-label">Name</label>
                     <input type="text" name="name" class="form-control"
                            value="<?= $product->value('name') ?>" required>
                 </div>
@@ -64,7 +63,7 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <a href="index.php" class="btn btn-secondary">Cancel</a>
+                    <a href="../index.php?page=product" class="btn btn-secondary">Cancel</a>
                     <button type="submit" class="btn btn-success">
                         <?= isset($_GET['id']) ? 'Update Product' : 'Add Product' ?>
                     </button>

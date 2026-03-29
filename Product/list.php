@@ -1,5 +1,5 @@
 <?php
-require_once 'product.php';
+require_once __DIR__ . '/product.php';
 
 $product = new Product();
 $rows = $product->getAll();
@@ -14,14 +14,14 @@ $rows = $product->getAll();
 </head>
 <body class="bg-light">
 
-<div class="container mt-5">
+<div class="container mt-4">
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-0">Product List</h2>
-        <a href="form.php" class="btn btn-primary">New Product</a>
+        <a href="Product/form.php" class="btn btn-primary">New Product</a>
     </div>
 
-    <form method="POST" action="./delete.php">
+    <form method="POST" action="Product/delete.php">
 
         <div class="mb-3">
             <button type="submit" class="btn btn-danger">Delete Selected</button>
@@ -40,7 +40,8 @@ $rows = $product->getAll();
                         <th>Price</th>
                         <th>Status</th>
                         <th>Created Date</th>
-                        <th width="120">Action</th>
+                        <th>Updated Date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -63,18 +64,12 @@ $rows = $product->getAll();
                                 <?php endif; ?>
                             </td>
                             <td><?= $row['created_date'] ?></td>
-                            <td>
-                                <a href="form.php?id=<?= $row['product_id'] ?>" 
-                                   class="btn btn-sm btn-warning">
-                                   Edit
-                                </a>
-                            </td>
+                            <td><?= $row['updated_date'] ?></td>
+                            <td><a href="Product/form.php?id=<?= $row['product_id'] ?>" class="btn btn-sm btn-warning">Edit</a></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
-                        <tr>
-                            <td colspan="7" class="text-center">No products found</td>
-                        </tr>
+                        <tr><td colspan="9" class="text-center">No products found.</td></tr>
                     <?php endif; ?>
                 </tbody>
 
