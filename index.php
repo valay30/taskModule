@@ -17,6 +17,8 @@ if (!in_array($page, $allowed)) {
     <div class="navbar-nav">
         <a class="nav-link <?= $page === 'product'        ? 'active fw-bold' : '' ?>" href="?page=product">Product</a>
         <a class="nav-link <?= $page === 'category'       ? 'active fw-bold' : '' ?>" href="?page=category">Category</a>
+        <a class="nav-link <?= $page === 'customer_group' ? 'active fw-bold' : '' ?>" href="?page=customer_group">Customer Group</a>
+        <a class="nav-link <?= $page === 'customer'       ? 'active fw-bold' : '' ?>" href="?page=customer">Customer</a>
     </div>
 </nav>
 
