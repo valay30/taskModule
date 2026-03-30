@@ -25,12 +25,12 @@ if (isset($_GET['id'])) {
                 <div class="mb-3">
                     <label class="form-label">Group Name</label>
                     <input type="text" name="group_name" class="form-control"
-                           value="<?= htmlspecialchars($group->value('group_name') ?? '') ?>" required>
+                           value="<?= $group->value('group_name') ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Description</label>
-                    <textarea name="description" class="form-control" rows="3"><?= htmlspecialchars($group->value('description') ?? '') ?></textarea>
+                    <textarea name="description" class="form-control" rows="3"><?= $group->value('description') ?></textarea>
                 </div>
 
                 <div class="mb-3">

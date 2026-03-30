@@ -5,7 +5,6 @@ require_once __DIR__ . '/../Product/product.php';
 $media = new ProductMedia();
 $rows  = $media->getAll();
 
-// Build product lookup
 $productModel = new Product();
 $products     = $productModel->getAll();
 $productMap   = [];

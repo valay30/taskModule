@@ -7,7 +7,6 @@ if (isset($_GET['id'])) {
     $media->load($_GET['id']);
 }
 
-// Load products for dropdown
 $productModel = new Product();
 $products = $productModel->getAll();
 ?>
@@ -34,7 +33,7 @@ $products = $productModel->getAll();
                         <?php foreach ($products as $p): ?>
                             <option value="<?= $p['product_id'] ?>"
                                 <?= $media->value('product_id') == $p['product_id'] ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($p['name']) ?>
+                                <?= $p['name'] ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -43,13 +42,13 @@ $products = $productModel->getAll();
                 <div class="mb-3">
                     <label class="form-label">File Path</label>
                     <input type="text" name="file_path" class="form-control"
-                           value="<?= htmlspecialchars($media->value('file_path') ?? '') ?>" required>
+                           value="<?= $media->value('file_path') ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Alt Text</label>
                     <input type="text" name="alt_text" class="form-control"
-                           value="<?= htmlspecialchars($media->value('alt_text') ?? '') ?>">
+                           value="<?= $media->value('alt_text') ?>">
                 </div>
 
                 <div class="mb-3">

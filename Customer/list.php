@@ -5,7 +5,6 @@ require_once __DIR__ . '/../CustomerGroup/customer_group.php';
 $customer = new Customer();
 $rows = $customer->getAll();
 
-// Build group lookup
 $groupModel = new CustomerGroup();
 $groupRows  = $groupModel->getAll();
 $groupMap   = [];

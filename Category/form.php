@@ -25,12 +25,12 @@ if (isset($_GET['id'])) {
                 <div class="mb-3">
                     <label class="form-label">Name</label>
                     <input type="text" name="name" class="form-control"
-                           value="<?= htmlspecialchars($category->value('name') ?? '') ?>" required>
+                           value="<?= $category->value('name') ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Description</label>
-                    <textarea name="description" class="form-control" rows="3"><?= htmlspecialchars($category->value('description') ?? '') ?></textarea>
+                    <textarea name="description" class="form-control" rows="3"><?= $category->value('description') ?></textarea>
                 </div>
 
                 <div class="mb-3">

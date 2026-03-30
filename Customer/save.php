@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $skip = ['customer_id'];
     foreach ($_POST as $key => $value) {
         if (in_array($key, $skip)) continue;
-        // Allow empty customer_group_id (nullable FK)
         if ($key === 'customer_group_id' && $value === '') {
             $customer->value($key, null);
         } else {
